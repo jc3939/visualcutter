@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends, File, UploadFile, Request
 from pydantic import BaseModel, EmailStr
 from passlib.hash import bcrypt
-from autocut.autocut.type import WhisperModel
+from autocut.type import WhisperModel
 import argparse
-from autocut.autocut.transcribe import Transcribe
+from autocut.transcribe import Transcribe
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from typing import Optional
