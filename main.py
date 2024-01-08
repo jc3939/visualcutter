@@ -1,9 +1,9 @@
 from fastapi import FastAPI, HTTPException, Depends, File, UploadFile, Request
 from pydantic import BaseModel, EmailStr
 from passlib.hash import bcrypt
-from autocut.type import WhisperModel
+#from autocut.type import WhisperModel
 import argparse
-from autocut.transcribe import Transcribe
+#from autocut.transcribe import Transcribe
 from datetime import datetime, timedelta
 from jose import JWTError, jwt
 from typing import Optional
@@ -89,7 +89,7 @@ async def login(user: UserCreate):
     access_token = jwt.encode(access_token_data, SECRET_KEY, algorithm=ALGORITHM)
 
     return {"access_token": access_token, "token_type": "bearer"}
-
+'''
 @app.post("/transcribe/")
 async def transcribe(request: Request, file: UploadFile = File(...)):
     video_file = await __uploadfile(file) 
@@ -109,6 +109,7 @@ async def transcribe(request: Request, file: UploadFile = File(...)):
     setattr(myArgs, 'encoding', "utf-8")
     setattr(myArgs, 'device', "cpu")
     Transcribe(myArgs).run()
+'''
 
 if __name__ == "__main__":
     import uvicorn
